@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forum Pencegahan Judol</title>
+<style>
+  body {
+    background: linear-gradient(135deg, #1e1e2f, #2a2a40);
+    font-family: Arial, sans-serif;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+  }
+
+  .forum {
+    width: 600px;
+    margin: 20px auto;
+    background: #2f2f44;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.4);
+  }
+
+  .post {
+    padding: 10px;
+    border-bottom: 1px solid #444;
+  }
+
+  .post:last-child {
+    border-bottom: none;
+  }
+
+  input, button {
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    margin: 5px 0;
+  }
+
+  button {
+    background: #5865F2;
+    color: white;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background: #4752C4;
+  }
+</style>
+</head>
+<body>
+<h2>Tips menghindari judol</h2>
+
+<div class="forum" id="posts">
+  <div class="post"><b>Moderator:</b>Disini untuk memberikan Tips menghindari judol</div>
+</div>
+
+<form id="commentForm">
+  <input type="text" id="nama" placeholder="Nama" required>
+  <input type="text" id="komentar" placeholder="Tulis komentar..." required>
+  <button type="submit">Kirim</button>
+</form>
+
+<script>
+  document.getElementById("commentForm").addEventListener("submit", function(e){
+    e.preventDefault();
+    let nama = document.getElementById("nama").value;
+    let komentar = document.getElementById("komentar").value;
+    let newComment = document.createElement("p");
+    newComment.innerHTML = "<b>" + nama + ":</b> " + komentar;
+    document.getElementById("posts").appendChild(newComment);
+    this.reset();
+  });
+</script>
+</body>
+</html>
